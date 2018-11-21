@@ -27,7 +27,7 @@ author: bobh "bomazani"
 """
 
 
-gotCitiesCSV = "King's Laanding,Braavos,Volantis,Old Valyria,Free Cities,Qarth,Meereen"
+gotCitiesCSV = "King's Landing,Braavos,Volantis,Old Valyria,Free Cities,Qarth,Meereen"
 lotrCitiesList = ["Mordor", "Gondor", "Rohan", "Beleriand",
                   "Mirkwood", "Dead Marshes", "Rhun", "Harad"]
 bestThing = "The best thing about a boolean is even if you are wrong you are only off by a bit"
@@ -49,7 +49,7 @@ answer4 = ','.join(lotrCitiesList)
 print(answer4)
 
 print('5. Display the first 5 cities in lotrCitiesList')
-print(lotrCitiesList[:4])
+print(lotrCitiesList[:5])
 
 print('6. Display the last 5 cities in lotrCitiesList')
 print(lotrCitiesList[-5:])
@@ -70,6 +70,7 @@ gondor_index = lotrCitiesList.index('Gondor')
 lotrCitiesList.insert(gondor_index + 1, 'Rohan')
 print(lotrCitiesList)
 
+
 print('11. Using built-in methods, rename "Dead Marshes" to "Deadest Marshes" in lotrCitiesList')
 dead_marshes_index = lotrCitiesList.index('Dead Marshes')
 del lotrCitiesList[dead_marshes_index]
@@ -83,10 +84,11 @@ print('13. Using built-in methods, display the last 12 characters from bestThing
 print(bestThing[-12:])
 
 print('14. Using built-in methods, display characters between the 23rd and 38th position of bestThing (i.e., "boolean is even")')
-print(bestThing[23:39])
+print(bestThing[23:38])
 
 print('15. Find and display the index of "only" in bestThing')
 print(bestThing.index('only'))
+print(bestThing.find('only'))
 
 print('16. Find and display the index of the last word in bestThing')
 best_thing_list = bestThing.split(' ')
@@ -105,23 +107,45 @@ for city in cities:
             elif city[counter] == city[counter + 1]:
                 # print(city[counter] + " : " + city[counter + 1])
                 print(city)
+# Solution
+# result = []
+# double_vowels = ['aa', 'ee', ...]
+# for word in got_cities.split(','):
+#     for doubles in double_vowels:
+#         if doubles in word:
+#             result.append(word)
+# result
+
+# Solution 2
+# vowel_list = ['aa', 'ee', ...]
+# for word in got_cities.split(','):
+#     if any (v in word for v in vowel_list):
+#         result.append(word)
 
 print('18. Find and display all cities from lotrCitiesList that end with "or"')
 for city in lotrCitiesList:
     if city.endswith("or"):
         print(city)
+# another option:
+# [city for city in lotrCitiesList if city.endswith('or')]
+# print(city)
 
 print('19. Find and display all the words in bestThing that start with a "b"')
 words_list = bestThing.split(' ')
 for word in words_list:
     if word[0] == 'b':
         print(word)
+# alternate solution
+# print([word for word in bestThing.split() if word[0] == 'b'])
 
 print('20. Display "Yes" or "No" if lotrCitiesList includes "Mirkwood"')
 if "Mirkwood" in lotrCitiesList:
     print('Yes')
 else:
     print('No')
+
+# alternate solution
+# print('yes' if 'Mirkwood' in lotrCitiesList else 'No')
 
 print('21. Display "Yes" or "No" if lotrCitiesList includes "Hollywood"')
 if "Hollywood" in lotrCitiesList:
@@ -138,7 +162,7 @@ for city in lotrCitiesList:
         print(city)
 
 print('24. Reverse the order in lotrCitiesList')
-print(lotrCitiesList[-1:0:-1])
+print(lotrCitiesList[-1::-1])
 
 print('25. Sort lotrCitiesList alphabetically')
 lotrCitiesList.sort()
